@@ -51,6 +51,7 @@ class DashboardController extends Controller
 
 
         $dashboardColumns = $dashboardColumns->dashboardColumns;
+    //    dd($dashboardColumns);
 
         // return Inertia::render('Hey');
         return view('admin.dashboard', compact('admin','users', 'dashboardColumns'));

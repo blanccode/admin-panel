@@ -71,8 +71,8 @@ class DashboardColumn extends Model
         $this->dashboardColumns[3]['icon-class'] = "bg-gradient-info";
         $this->dashboardColumns[3]['icon-name'] = "ni ni-chart-bar-32";
         $this->dashboardColumns[3]['count'] = "100%";
-        $this->dashboardColumns[3]['month-percentage'] = "20%";
-        $this->dashboardColumns[3]['week-percentage'] = "3%";
+        $this->dashboardColumns[3]['month-percentage'] = 20;
+        $this->dashboardColumns[3]['week-percentage'] = 3;
         // $this->dashboardColumns[3]['percentage'] =  $user->calcUsersIncrease();
     }
 }
