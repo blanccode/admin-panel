@@ -48,7 +48,7 @@ class CalcPercentages {
     }
     
     
-    public static function getSinceLastWeak($models) : int
+    public static function getSinceLastWeek($models) : int
     {
         $date = \Carbon\Carbon::now()->startOfWeek() and Carbon::now()->endOfWeek();
         $model = $models->whereBetween('created_at', [Carbon::now()->subWeek()->startOfWeek(), Carbon::now()->endOfWeek()])->get();

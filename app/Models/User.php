@@ -67,5 +67,9 @@ class User extends Authenticatable
     {
         return CalcPercentages::getLastMonth($this);
     }
+    public function calcUsersSinceWeek() : int
+    {
+        return CalcPercentages::calcIncrease(CalcPercentages::getSinceLastWeek($this), CalcPercentages::getCurrentWeak($this));
+    }
     
 }

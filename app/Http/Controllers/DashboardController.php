@@ -49,17 +49,11 @@ class DashboardController extends Controller
            $viewsSinceWeak = $view->calcViewsSinceWeak();
         }
 
-        $totalViews = $view->addAllViews();
-        $viewsPercentage = $view->calcViewsIncrease();
-
-        $usersCount = $this->userRepository->getUserCount();
-        $usersPercentage = $user->calcUsersIncrease();
-        $salesPercentage = $sale->calcSalesIncrease();
 
         $dashboardColumns = $dashboardColumns->dashboardColumns;
 
         // return Inertia::render('Hey');
-        return view('admin.dashboard', compact('admin','users', 'usersCount', 'usersPercentage', 'totalViews', 'viewsPercentage', 'dashboardColumns'));
+        return view('admin.dashboard', compact('admin','users', 'dashboardColumns'));
     }
 
     /**

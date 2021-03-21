@@ -1,1 +1,44 @@
 
+.grey-light-custom {
+    color: #525f7f;
+    font-weight: 300;
+}
+
+.align-custom {
+    /* text-align: right !important; */
+    margin: 0 !important;
+    margin-left: 0 !important;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.custom-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.arrow-down {
+    right: 10px;
+    pointer-events: none;
+    color: #94a0ac;
+    font-size: .75em;
+}
+
+
+
+select.form-control {
+    border: none;
+    padding: 0;
+    padding-right: .5em;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    /* background-image: url('../vendor/@fortawesome/fontawesome-free/svgs/solid/chevron-down.svg'); 
+    background-repeat: no-repeat;    */
+}

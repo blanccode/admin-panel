@@ -17,6 +17,7 @@
         <!-- Argon CSS -->
         {{-- <link rel="stylesheet" href="{{asset('assets/vendor/bootstrap/dist/css/bootstrap.min.css')}}" type="text/css"> --}}
         <link rel="stylesheet" href="{{asset('assets/css/argon.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/app.css')}}" type="text/css">
         </head>
     @endsection
     @yield('styles')

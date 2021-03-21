@@ -41,7 +41,7 @@ class View extends Model
     
     public function calcViewsSinceWeak() : int 
     {
-        return CalcPercentages::calcIncrease(CalcPercentages::getSinceLastWeak($this) , CalcPercentages::getCurrentWeak($this));
+        return CalcPercentages::calcIncrease(CalcPercentages::getSinceLastWeek($this) , CalcPercentages::getCurrentWeak($this));
         // return 3;
     }
     

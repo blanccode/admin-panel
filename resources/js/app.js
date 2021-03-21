@@ -14,11 +14,11 @@ require('./bootstrap');
 //     })
 // }).use(plugin).mount(el)
 import { createApp } from 'vue'
-import App from './Pages/Hey.vue'
+import selectComponent from './Pages/SelectComponent.vue'
 
 
 createApp({
-    components: { App }
+    components: { selectComponent }
 }).mount('#app');
 //Main pages
 

@@ -6,14 +6,16 @@
 
 {{-- @endcan --}}
 <div id="app">
+
     {{-- @can('admin-rights') --}}
     <!-- Main content -->
+
 
     <div class="main-content" id="panel">
 
         <!-- Header -->
         <!-- Header -->
-        <div class="header bg-primary pb-6">
+        <div  class="header bg-primary pb-6">
             <div class="container-fluid">
                 <div class="header-body">
 
@@ -21,37 +23,45 @@
                 </div>
                 <!-- Card stats -->
                 <div>
-                    <div class="row">
-                        @php
-                        @endphp
+                    <div  class="row">
+                      
                         @foreach ($dashboardColumns as $dashboardColumn)
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card card-stats">
-                                <!-- Card body -->
-                                <div class="card-body pb-1">
-                                    <div class="row">
-                                        <div class="col mb-3">
-                                            {{-- @foreach ($views as $view) --}}
-                                            <h5 class="card-title text-uppercase text-muted mb-0">{{$dashboardColumn['title']}}</h5>
-                                            {{-- @endforeach --}}
-                                            <span class="h2 font-weight-bold mb-0 gray">{{$dashboardColumn['count'] ?? ''}}</span>
-                                        </div>
-                                        <div class="col-auto ">
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card card-stats">
+                                    <!-- Card body -->
+                                    <div class="card-body pb-1">
+                                        <div class="row">
+                                            <div class="col mb-3">
+                                                <h5 class="card-title text-uppercase text-muted mb-0">{{$dashboardColumn['title']}}</h5>
+                                                <span class="h2 font-weight-bold mb-0 gray">{{$dashboardColumn['count'] ?? ''}}</span>
+                                            </div>
+                                            <div class="col-auto">
 
-                                            <div
-                                                class="icon icon-shape {{$dashboardColumn['icon-class']}} text-white rounded-circle shadow">
-                                                <i class="{{$dashboardColumn['icon-name']}}"></i>
+                                                <div
+                                                    class="icon icon-shape {{$dashboardColumn['icon-class']}} text-white rounded-circle shadow">
+                                                    <i class="{{$dashboardColumn['icon-name']}}"></i>
+                                                </div>
                                             </div>
                                         </div>
+                                        <div class="flex-row">
+                                            {{-- @if ($dashboardColumn['percentage'] >= 0 )
+                                                <span class="text-success mr-4"><i class="fa fa-arrow-up"></i>
+                                                    {{$dashboardColumn['percentage']}}%
+                                                </span>
+                                            @else
+                                                <span class="text-warning mr-4"><i class="fa fa-arrow-down"></i>
+                                                    {{$dashboardColumn['percentage']}}%
+                                                </span>
+                                            @endif --}}
+
+                                            <select-component :column="{{json_encode($dashboardColumn)}}"></select-component>
+                                        </div>
+                                        {{-- @include('admin.layouts.partials.dashboard-columns') --}}
                                     </div>
-
-                                    @include('admin.layouts.partials.dashboard-columns')
                                 </div>
-                            </div>
-                    <app><app>
 
-                        </div>
-                        @endforeach
+                            </div> 
+                        @endforeach 
                     </div>
                 </div>
 

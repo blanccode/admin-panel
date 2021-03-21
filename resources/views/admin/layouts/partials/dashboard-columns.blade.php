@@ -1,4 +1,4 @@
-
+{{-- 
 @if ($usersPercentage >= 0 )
 <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>
     {{$usersPercentage}}%</span>
@@ -6,7 +6,7 @@
 @else
 <span class="text-warning mr-2"><i class="fa fa-arrow-down"></i>
     {{$usersPercentage}}%</span>
-@endif
+@endif --}}
 <form method="POST">
     @csrf
     <div class="custom-flex">
