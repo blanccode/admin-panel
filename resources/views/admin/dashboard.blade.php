@@ -54,7 +54,10 @@
                                                 </span>
                                             @endif --}}
 
-                                            <select-component month-percentage="{{$dashboardColumn['month-percentage']}}"></select-component>
+                                            <select-component 
+                                            month-percentage="{{$dashboardColumn['month-percentage']}}"
+                                            week-percentage="{{$dashboardColumn['week-percentage'] }}">
+                                            </select-component>
                                         </div>
                                         {{-- @include('admin.layouts.partials.dashboard-columns') --}}
                                     </div>

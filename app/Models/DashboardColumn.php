@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Helpers\CalcPercentages;
+use Carbon\Carbon;
 use App\Models\Sale;
 use App\Models\User;
 use App\Models\View;
@@ -36,8 +38,9 @@ class DashboardColumn extends Model
         $usersPercentage = $user->calcUsersIncrease();
         $salesPercentage = $sale->calcSalesIncrease();
 
-        $viesSinceWeek = $view->calcViewsSinceWeak();
+        $viewsSinceWeek = $view->calcViewsSinceWeak();
         $usersSinceWeek = $user->calcUsersSinceWeek();
+
         $salesSinceWeek = $sale->calcSalesSinceWeek();
 
 
@@ -48,7 +51,7 @@ class DashboardColumn extends Model
         $this->dashboardColumns[0]['icon-name'] = "ni ni-active-40";
         $this->dashboardColumns[0]['count'] = $viewsCount;
         $this->dashboardColumns[0]['month-percentage'] = $viewsPercentage;
-        $this->dashboardColumns[0]['week-percentage'] = $viesSinceWeek;
+        $this->dashboardColumns[0]['week-percentage'] = $viewsSinceWeek;
         // $this->dashboardColumns[0]['percentage'] = $view->calcViewsIncrease();
 
         $this->dashboardColumns[1]['title'] = 'new users';
@@ -71,8 +74,8 @@ class DashboardColumn extends Model
         $this->dashboardColumns[3]['icon-class'] = "bg-gradient-info";
         $this->dashboardColumns[3]['icon-name'] = "ni ni-chart-bar-32";
         $this->dashboardColumns[3]['count'] = "100%";
-        $this->dashboardColumns[3]['month-percentage'] = 20;
-        $this->dashboardColumns[3]['week-percentage'] = 3;
+        $this->dashboardColumns[3]['month-percentage'] = -20;
+        $this->dashboardColumns[3]['week-percentage'] = -3;
         // $this->dashboardColumns[3]['percentage'] =  $user->calcUsersIncrease();
     }
 }

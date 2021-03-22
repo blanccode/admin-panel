@@ -15,7 +15,7 @@ class CalcPercentages {
 
             $increase = $increase / $pastNum * 100;
 
-            return number_format($increase, 2);
+            return $increase;
         }
     }
 
@@ -50,9 +50,9 @@ class CalcPercentages {
     
     public static function getSinceLastWeek($models) : int
     {
-        $date = \Carbon\Carbon::now()->startOfWeek() and Carbon::now()->endOfWeek();
-        $model = $models->whereBetween('created_at', [Carbon::now()->subWeek()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+        // $date = \Carbon\Carbon::now()->startOfWeek() and Carbon::now()->endOfWeek();
 
+        $model = $models->whereBetween('created_at', [Carbon::now()->subWeek()->startOfWeek(), Carbon::now()->subWeek()->endOfWeek()])->get();
         $int = 0;
 
         foreach ($model as $model) {
@@ -63,14 +63,14 @@ class CalcPercentages {
     } 
     public static function getCurrentWeak($models) :int
     {
-        $date = \Carbon\Carbon::now()->startOfWeek() and Carbon::now()->endOfWeek();
+        // $date = \Carbon\Carbon::now()->startOfWeek() and Carbon::now()->endOfWeek();
         $model = $models->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
-
         $int = 0;
 
         foreach ($model as $model) {
             $int++;
         }
+
         return $int;
 
 
