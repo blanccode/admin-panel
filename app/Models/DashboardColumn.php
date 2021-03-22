@@ -39,9 +39,11 @@ class DashboardColumn extends Model
         $salesPercentage = $sale->calcSalesIncrease();
 
         $viewsSinceWeek = $view->calcViewsSinceWeak();
+        // dd(CalcPercentages::getCurrentWeak($view));
         $usersSinceWeek = $user->calcUsersSinceWeek();
 
         $salesSinceWeek = $sale->calcSalesSinceWeek();
+        
 
 
         // dd($user->calcUsersIncrease());
@@ -51,7 +53,7 @@ class DashboardColumn extends Model
         $this->dashboardColumns[0]['icon-name'] = "ni ni-active-40";
         $this->dashboardColumns[0]['count'] = $viewsCount;
         $this->dashboardColumns[0]['month-percentage'] = $viewsPercentage;
-        $this->dashboardColumns[0]['week-percentage'] = $viewsSinceWeek;
+        $this->dashboardColumns[0]['week-percentage'] = CalcPercentages::calcIncrease(0, 0);
         // $this->dashboardColumns[0]['percentage'] = $view->calcViewsIncrease();
 
         $this->dashboardColumns[1]['title'] = 'new users';

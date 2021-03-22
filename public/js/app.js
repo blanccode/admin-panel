@@ -16387,13 +16387,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["monthPercentage", 'options', 'weekPercentage'],
+  props: ["monthPercentage", 'options', 'weekPercentage', 'yearPercentage'],
   data: function data() {
     return {
-      options: "last-month"
+      options: "last-month",
+      yearPercentage: -2
     };
   },
-  computed: {} //   methods: {
+  computed: {
+    filterWeekPercentage: function filterWeekPercentage() {
+      console.log(this.weekPercentage);
+    }
+  } //   methods: {
   //     onchange(options) {
   //       this.options = options;
   //     }
@@ -16439,31 +16444,81 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 );
 
 var _hoisted_5 = {
+  key: 2
+};
+var _hoisted_6 = {
+  key: 3,
+  "class": "text-success mr-4"
+};
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+  "class": "fa fa-arrow-up"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_8 = {
+  key: 4,
+  "class": "text-warning mr-4"
+};
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+  "class": "fa fa-arrow-down"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_10 = {
+  key: 5
+};
+var _hoisted_11 = {
+  key: 6,
+  "class": "text-success mr-4"
+};
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+  "class": "fa fa-arrow-up"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_13 = {
+  key: 7,
+  "class": "text-warning mr-4"
+};
+
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+  "class": "fa fa-arrow-down"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_15 = {
   "class": "custom-flex"
 };
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
   value: "last-week",
   "class": ""
 }, "Since Last Week", -1
 /* HOISTED */
 );
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
   value: "last-month",
   "class": ""
 }, "Since Last Month", -1
 /* HOISTED */
 );
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
   value: "last-year",
   "class": ""
 }, "Since Last Year", -1
 /* HOISTED */
 );
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
   "class": "fas fa-chevron-down arrow-down"
 }, null, -1
 /* HOISTED */
@@ -16474,16 +16529,22 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   )])) : $data.options == 'last-month' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.monthPercentage) + "% ", 1
   /* TEXT */
-  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.options), 1
+  )])) : $props.monthPercentage != Number ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)('Your have not any data yet'))) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.weekPercentage >= 0 && $data.options == 'last-week' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.weekPercentage) + "% ", 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <span v-if=\"monthPercentage >= 0 && options == 'last-month'\" class=\"text-success mr-4\">\n    <i class=\"fa fa-arrow-up\"></i>\n    {{monthPercentage}}%\n  </span>\n  <span v-else-if=\"options == 'last-month'\" class=\"text-warning mr-4\">\n    <i class=\"fa fa-arrow-down\"></i>\n    {{monthPercentage}}%\n  </span>\n    <span>{{options}}</span>\n  <span v-if=\"monthPercentage >= 0 && options == 'last-month'\" class=\"text-success mr-4\">\n    <i class=\"fa fa-arrow-up\"></i>\n    {{monthPercentage}}%\n  </span>\n  <span v-else-if=\"options == 'last-month'\" class=\"text-warning mr-4\">\n    <i class=\"fa fa-arrow-down\"></i>\n    {{monthPercentage}}%\n  </span>\n    <span>{{options}}</span> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <form method=\"POST\">\n  @csrf"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("select", {
+  )])) : $data.options == 'last-week' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.weekPercentage) + "% ", 1
+  /* TEXT */
+  )])) : $data.options == 'last-week' && $props.weekPercentage != Number ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)('You have not any data yet'))) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.yearPercentage >= 0 && $data.options == 'last-year' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.yearPercentage) + "% ", 1
+  /* TEXT */
+  )])) : $data.options == 'last-year' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.yearPercentage) + "% ", 1
+  /* TEXT */
+  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("select", {
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $data.options = $event;
     }),
     "class": "form-control pt-0"
-  }, [_hoisted_6, _hoisted_7, _hoisted_8], 512
+  }, [_hoisted_16, _hoisted_17, _hoisted_18], 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.options]]), _hoisted_9]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" </form> ")], 64
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.options]]), _hoisted_19]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" </form> ")], 64
   /* STABLE_FRAGMENT */
   );
 }
