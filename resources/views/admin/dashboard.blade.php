@@ -55,6 +55,7 @@
                                             @endif --}}
 
                                             <select-component 
+                                            
                                             month-percentage="{{$dashboardColumn['month-percentage']}}"
                                             week-percentage="{{$dashboardColumn['week-percentage'] }}">
                                             </select-component>

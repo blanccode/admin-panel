@@ -1,39 +1,44 @@
 <template>
-  <span v-if="checkIfString " >
+  <!-- <span v-if="checkIfString " >
+      {{checkIfString}}
+  </span> -->
+  <span v-if="monthPercentage >= 0  && options == 'last-month' && !checkMonthIsString()  " class="text-success mr-4">
+    <i class="fa fa-arrow-up"></i>
+    {{monthPercentage}}%
+  </span>
+  <span v-else-if="options == 'last-month' && !checkMonthIsString()" class="text-warning mr-4">
+    <i class="fa fa-arrow-down"></i>
+    {{monthPercentage}}%
+  </span>
+
+  <span v-else-if=" checkMonthIsString() " >
       {{monthPercentage}}
   </span>
-  <span v-else-if="monthPercentage >= 0  && options == 'last-month' && !checkIfString " class="text-success mr-4">
-    <i class="fa fa-arrow-up"></i>
-    {{monthPercentage}}%
-  </span>
-  <span v-else-if="options == 'last-month'" class="text-warning mr-4">
-    <i class="fa fa-arrow-down"></i>
-    {{monthPercentage}}%
-  </span>
 
-  <span v-if=" checkIfString " >
-      {{weekPerncentage}}
-  </span>
-  <span v-else-if="weekPercentage >= 0  && options == 'last-week'" class="text-success mr-4">
+  <span v-else-if="weekPercentage >= 0  && options == 'last-week' && !checkWeekIsString()" class="text-success mr-4">
     <i class="fa fa-arrow-up"></i>
     {{weekPercentage}}%
   </span>
-  <span v-else-if="options == 'last-week'" class="text-warning mr-4">
+  <span v-else-if="options == 'last-week' && !checkWeekIsString()" class="text-warning mr-4">
     <i class="fa fa-arrow-down"></i>
     {{weekPercentage}}%
   </span>
 
-  <span v-if="yearPercentage >= 0 && options == 'last-year'" class="text-success mr-4">
+  <span v-else-if=" checkWeekIsString() " >
+      {{weekPercentage}}
+  </span>
+
+  <!-- <span v-if="yearPercentage >= 0 && options == 'last-year'" class="text-success mr-4">
     <i class="fa fa-arrow-up"></i>
     {{yearPercentage}}%
   </span>
   <span v-else-if="options == 'last-year'" class="text-warning mr-4">
     <i class="fa fa-arrow-down"></i>
     {{yearPercentage}}%
-  </span>
+  </span> -->
 
   <div class="custom-flex">
-    <select @change="checkIfString" v-model="options"  class="form-control pt-0">
+    <select  v-model="options"  class="form-control pt-0">
       <option value="last-week" class>Since Last Week</option>
       <option value="last-month" class>Since Last Month</option>
       <option value="last-year" class>Since Last Year</option>
@@ -56,26 +61,33 @@ export default {
       yearPercentage: -2
     };
   },
-  computed: {
-      checkIfString() {
-          let percentages = [this.yearPercentage, this.weekPercentage, this.monthPercentage];
-          let stringArray =  percentages.filter(item => isNaN(item))
+  methods: {
+      checkMonthIsString() {
+          let percentagesArray = [this.monthPercentage];
+        
+          console.log(percentagesArray);
 
-          let numberArray =  percentages.filter(item => !isNaN(item))
+          let stringArray =  percentagesArray.filter(item => isNaN(item))
 
-          let parsedIntArray =  numberArray.map( (item) => parseInt(item))
-
-      
-
+          // let numberArray =  percentagesArray.filter(item => !isNaN(item))
+          // let parsedIntArray =  numberArray.map( (item) => parseInt(item))
           // let arrayOfString =  stringArray.filter(item => typeof item == "string")
 
-          // arrayOfString = []
-          // if (arrayOfString.length <= 0 ){
-          //   return false;
-          // } else {
-          //   return true;
-          // }
+          if (stringArray.length <= 0 ) return false;
 
+          return true;
+
+      },
+      checkWeekIsString() {
+          let percentagesArray = [this.weekPercentage];
+        
+          console.log(percentagesArray);
+
+          let stringArray =  percentagesArray.filter(item => isNaN(item))
+
+          if (stringArray.length <= 0 ) return false;
+
+          return true;
       }
 
   }
