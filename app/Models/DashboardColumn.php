@@ -41,7 +41,6 @@ class DashboardColumn extends Model
         $viewsSinceWeek = $view->calcViewsSinceWeak();
         // dd(CalcPercentages::getCurrentWeak($view));
         $usersSinceWeek = $user->calcUsersSinceWeek();
-
         $salesSinceWeek = $sale->calcSalesSinceWeek();
         
 

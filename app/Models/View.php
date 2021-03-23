@@ -33,7 +33,7 @@ class View extends Model
         }
         return $viewCount;
     }
-    public function calcViewsIncrease() 
+    public function calcViewsIncrease() : int
     {
         return CalcPercentages::calcIncrease(CalcPercentages::getLastMonth($this), CalcPercentages::getCurrentMonth($this));
     }

@@ -15,7 +15,7 @@ class CalcPercentages {
 
             $increase = $increase / $pastNum * 100;
 
-            return $increase;
+            return number_format($increase,2);
         }
         return 'You have not any data yet';
     }

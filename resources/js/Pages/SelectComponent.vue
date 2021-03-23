@@ -1,5 +1,8 @@
 <template>
-  <span v-if="monthPercentage >= 0  && options == 'last-month' " class="text-success mr-4">
+  <span v-if="checkIfString " >
+      {{monthPercentage}}
+  </span>
+  <span v-else-if="monthPercentage >= 0  && options == 'last-month' && !checkIfString " class="text-success mr-4">
     <i class="fa fa-arrow-up"></i>
     {{monthPercentage}}%
   </span>
@@ -7,11 +10,11 @@
     <i class="fa fa-arrow-down"></i>
     {{monthPercentage}}%
   </span>
-  <span v-else-if="monthPercentage != Number " >
-      {{'Your have not any data yet'}}
-  </span>
 
-  <span v-if="weekPercentage >= 0  && options == 'last-week'" class="text-success mr-4">
+  <span v-if=" checkIfString " >
+      {{weekPerncentage}}
+  </span>
+  <span v-else-if="weekPercentage >= 0  && options == 'last-week'" class="text-success mr-4">
     <i class="fa fa-arrow-up"></i>
     {{weekPercentage}}%
   </span>
@@ -19,9 +22,7 @@
     <i class="fa fa-arrow-down"></i>
     {{weekPercentage}}%
   </span>
-  <span v-else-if="options == 'last-week' && weekPercentage != Number" >
-      {{'You have not any data yet'}}
-  </span>
+
   <span v-if="yearPercentage >= 0 && options == 'last-year'" class="text-success mr-4">
     <i class="fa fa-arrow-up"></i>
     {{yearPercentage}}%
@@ -32,7 +33,7 @@
   </span>
 
   <div class="custom-flex">
-    <select  v-model="options"  class="form-control pt-0">
+    <select @change="checkIfString" v-model="options"  class="form-control pt-0">
       <option value="last-week" class>Since Last Week</option>
       <option value="last-month" class>Since Last Month</option>
       <option value="last-year" class>Since Last Year</option>
@@ -48,7 +49,7 @@
 <script>
 
 export default {
-  props: ["monthPercentage", 'options' , 'weekPercentage', 'yearPercentage'],
+  props: ['monthPercentage', 'options' , 'weekPercentage', 'yearPercentage'],
   data() {
     return {
       options: "last-month",
@@ -56,8 +57,25 @@ export default {
     };
   },
   computed: {
-      filterWeekPercentage() {
-          console.log(this.weekPercentage)
+      checkIfString() {
+          let percentages = [this.yearPercentage, this.weekPercentage, this.monthPercentage];
+          let stringArray =  percentages.filter(item => isNaN(item))
+
+          let numberArray =  percentages.filter(item => !isNaN(item))
+
+          let parsedIntArray =  numberArray.map( (item) => parseInt(item))
+
+      
+
+          // let arrayOfString =  stringArray.filter(item => typeof item == "string")
+
+          // arrayOfString = []
+          // if (arrayOfString.length <= 0 ){
+          //   return false;
+          // } else {
+          //   return true;
+          // }
+
       }
 
   }
