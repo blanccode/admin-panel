@@ -16396,23 +16396,42 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     checkMonthIsString: function checkMonthIsString() {
-      var percentagesArray = [this.monthPercentage];
-      console.log(percentagesArray);
-      var stringArray = percentagesArray.filter(function (item) {
-        return isNaN(item);
-      }); // let numberArray =  percentagesArray.filter(item => !isNaN(item))
-      // let parsedIntArray =  numberArray.map( (item) => parseInt(item))
-      // let arrayOfString =  stringArray.filter(item => typeof item == "string")
+      var percentagesArray = [this.monthPercentage]; // let stringArray =  percentagesArray.filter(item => isNaN(item))
 
+      var stringArray = percentagesArray.filter(function (item) {
+        return !isNaN(item);
+      });
+      var parsedIntArray = stringArray.filter(function (item) {
+        return !parseInt(item);
+      }); // let arrayOfString =  parsedIntArray.filter(item => typeof item == "string")
+
+      console.log(parsedIntArray);
       if (stringArray.length <= 0) return false;
       return true;
     },
     checkWeekIsString: function checkWeekIsString() {
       var percentagesArray = [this.weekPercentage];
-      console.log(percentagesArray);
       var stringArray = percentagesArray.filter(function (item) {
-        return isNaN(item);
+        return !isNaN(item);
       });
+      var parsedIntArray = stringArray.filter(function (item) {
+        return !parseInt(item);
+      }); // let arrayOfString =  parsedIntArray.filter(item => typeof item == "string")
+
+      console.log(parsedIntArray);
+      if (stringArray.length <= 0) return false;
+      return true;
+    },
+    checkYearIsString: function checkYearIsString() {
+      var percentagesArray = [this.yearPercentage];
+      var stringArray = percentagesArray.filter(function (item) {
+        return !isNaN(item);
+      });
+      var parsedIntArray = stringArray.filter(function (item) {
+        return !parseInt(item);
+      }); // let arrayOfString =  parsedIntArray.filter(item => typeof item == "string")
+
+      console.log(parsedIntArray);
       if (stringArray.length <= 0) return false;
       return true;
     }
@@ -16490,57 +16509,88 @@ var _hoisted_10 = {
   key: 5
 };
 var _hoisted_11 = {
+  key: 6,
+  "class": "text-success mr-4"
+};
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+  "class": "fa fa-arrow-up"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_13 = {
+  key: 7,
+  "class": "text-warning mr-4"
+};
+
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+  "class": "fa fa-arrow-down"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_15 = {
+  key: 8
+};
+var _hoisted_16 = {
   "class": "custom-flex"
 };
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
   value: "last-week",
   "class": ""
 }, "Since Last Week", -1
 /* HOISTED */
 );
 
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
   value: "last-month",
   "class": ""
 }, "Since Last Month", -1
 /* HOISTED */
 );
 
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
   value: "last-year",
   "class": ""
 }, "Since Last Year", -1
 /* HOISTED */
 );
 
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
   "class": "fas fa-chevron-down arrow-down"
 }, null, -1
 /* HOISTED */
 );
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <span v-if=\"checkIfString \" >\n      {{checkIfString}}\n  </span> "), $props.monthPercentage >= 0 && $data.options == 'last-month' && !$options.checkMonthIsString() ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.monthPercentage) + "% ", 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <span v-if=\"checkIfString \" >\n      {{checkIfString}}\n  </span> "), $props.monthPercentage >= 0 && $data.options === 'last-month' && !$options.checkMonthIsString() ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.monthPercentage) + "% ", 1
   /* TEXT */
-  )])) : $data.options == 'last-month' && !$options.checkMonthIsString() ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.monthPercentage) + "% ", 1
+  )])) : $data.options === 'last-month' && !$options.checkMonthIsString() ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.monthPercentage) + "% ", 1
   /* TEXT */
-  )])) : $options.checkMonthIsString() ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.monthPercentage), 1
+  )])) : $data.options === 'last-month' && $options.checkMonthIsString() ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.monthPercentage), 1
   /* TEXT */
-  )) : $props.weekPercentage >= 0 && $data.options == 'last-week' && !$options.checkWeekIsString() ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.weekPercentage) + "% ", 1
+  )) : $props.weekPercentage >= 0 && $data.options === 'last-week' && !$options.checkWeekIsString() ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.weekPercentage) + "% ", 1
   /* TEXT */
-  )])) : $data.options == 'last-week' && !$options.checkWeekIsString() ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.weekPercentage) + "% ", 1
+  )])) : $data.options === 'last-week' && !$options.checkWeekIsString() ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.weekPercentage) + "% ", 1
   /* TEXT */
-  )])) : $options.checkWeekIsString() ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.weekPercentage), 1
+  )])) : $data.options === 'last-week' && $options.checkWeekIsString() ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.weekPercentage), 1
   /* TEXT */
-  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <span v-if=\"yearPercentage >= 0 && options == 'last-year'\" class=\"text-success mr-4\">\n    <i class=\"fa fa-arrow-up\"></i>\n    {{yearPercentage}}%\n  </span>\n  <span v-else-if=\"options == 'last-year'\" class=\"text-warning mr-4\">\n    <i class=\"fa fa-arrow-down\"></i>\n    {{yearPercentage}}%\n  </span> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("select", {
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.yearPercentage >= 0 && $data.options === 'last-year' && !$options.checkYearIsString() ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.yearPercentage) + "% ", 1
+  /* TEXT */
+  )])) : $data.options === 'last-year' && !$options.checkYearIsString() ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.yearPercentage) + "% ", 1
+  /* TEXT */
+  )])) : $data.options === 'last-year' && $options.checkYearIsString() ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.yearPercentage), 1
+  /* TEXT */
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("select", {
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $data.options = $event;
     }),
     "class": "form-control pt-0"
-  }, [_hoisted_12, _hoisted_13, _hoisted_14], 512
+  }, [_hoisted_17, _hoisted_18, _hoisted_19], 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.options]]), _hoisted_15]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" </form> ")], 64
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.options]]), _hoisted_20]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" </form> ")], 64
   /* STABLE_FRAGMENT */
   );
 }
